@@ -10,7 +10,7 @@ class build_ext_with_protpbuf(build_ext):
     def run(self):
         try:
             proc = subprocess.Popen(
-                ['protoc', '--cpp_out', 'imposm/parser/pbf/', 'osm.proto'],
+                ['protoc', '--proto_path', '/usr/local/include', '--cpp_out', 'imposm/parser/pbf/', 'osm.proto'],
                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         except OSError, ex:
             if ex.errno == errno.ENOENT:
